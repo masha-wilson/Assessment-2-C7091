@@ -1,0 +1,1089 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.5.57">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="author" content="Maria Wilson">
+
+<title>C7091 Assessment Mini Project</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+</style>
+
+
+<script src="statistical analysis report_files/libs/clipboard/clipboard.min.js"></script>
+<script src="statistical analysis report_files/libs/quarto-html/quarto.js"></script>
+<script src="statistical analysis report_files/libs/quarto-html/popper.min.js"></script>
+<script src="statistical analysis report_files/libs/quarto-html/tippy.umd.min.js"></script>
+<script src="statistical analysis report_files/libs/quarto-html/anchor.min.js"></script>
+<link href="statistical analysis report_files/libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="statistical analysis report_files/libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="statistical analysis report_files/libs/bootstrap/bootstrap.min.js"></script>
+<link href="statistical analysis report_files/libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="statistical analysis report_files/libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+
+
+</head>
+
+<body class="fullcontent">
+
+<div id="quarto-content" class="page-columns page-rows-contents page-layout-article">
+
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">C7091 Assessment Mini Project</h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    <div>
+    <div class="quarto-title-meta-heading">Author</div>
+    <div class="quarto-title-meta-contents">
+             <p>Maria Wilson </p>
+          </div>
+  </div>
+    
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<section id="introduction" class="level2">
+<h2 class="anchored" data-anchor-id="introduction"><u><strong>Introduction</strong></u></h2>
+<p>This report aimed to establish whether a new nanotechnology was successful in increasing the yield of soya beans by attracting more nitrogen-fixing bacteria to soil, and if so whether it was more effective than an existing biological nitrogen fixing (BNF) inoculant.</p>
+<p>To answer these questions, we were provided with data from trials which took place across 2 years (2016-2017) on 60 plots of land with three different soil groups:<br>
+Group 1: A control group containing 20 plots with no nanotechnology or BNF treatment.<br>
+Group 2: 20 plots with the nanotechnology applied once in 2016.<br>
+Group 3: 20 plots with bacterial inoculant applied.</p>
+<p>The plots were randomised once, and the nanotechnology was only applied once. This was to establish whether the nanotechnology was more effective in the second year than the first. An issue with the data received, was that it was not stated whether the BNF inoculant was applied only once, or whether it was applied in 2017 as well.</p>
+<p>The success of each land plot within each group was measured by the yield count per plot of land. R Studio version 4.4.1 was used to analyse the data, perform calculations and generate graphs. The yield increase from 2016 to 2017 was calculated by subtracting each yield count in 2017 from that of the corresponding land plot in 2016. An analysis of variance (ANOVA) was performed on the data and the p-values were compared to an alpha-value of 0.05 to determine whether the changes in yield for the nanotechnology were significantly different enough to the other groups.</p>
+<p>This showed a significant difference in the yield means between the groups in 2016 (p = 0.0015) and in 2017 (p = 6.3-14). Post-hoc tests further showed that the group which was statistically different, when compared to the others, was the nanotechnology. In 2016, when compared to the biological inoculant (p = 0.0016) and with the control (p = 0.0232). In 2017, p &lt; 0.0001 for both comparisons. However, the data showed a decrease in yield in all groups from 2016 to 2017 as opposed to the predicted increase for nanotechnology. The ANOVA did not find this to be statistically significant (p = 0.416) so this was inconclusive.</p>
+</section>
+<section id="background" class="level2">
+<h2 class="anchored" data-anchor-id="background"><u><strong>Background</strong></u></h2>
+<p><u>Context</u></p>
+<p>Over the past 100 years, intensive farming has depleted the soil of many nutrients required by crops to grow successfully (Barman, Das and Bhattacharya,2019). Nitrogen is essential for all plants to build the proteins they need to grow and in an agricultural setting, to produce higher yields (Bhatti, Haq and Bhat, 2017). However, it needs to be converted into nitrates, a form which the plants can absorb . Rhizobia are bacteria in the soil that carry out a process of biological nitrogen-fixing (BNF) which converts atmospheric nitrogen into nitrates. Such bacteria form symbiotic relationships with plants in the legume family which includes soya beans, by attaching themselves to the roots of the plants and creating nodules (López-Guerrero <em>et al.,</em>&nbsp;2012). They then receive carbon from the plant in exchange for the newly fixed nitrogen they provide it.</p>
+<p>In an agricultural setting, there are soil treatments known as BNF inoculants that are used to increase crop yields (Kaur <em>et al.,</em>&nbsp;2023).</p>
+<p>The new treatment being tested is a nanotechnology. It was designed to encourage the expression of certain genes in rhizobia which would increase their sensitivity to specific exudates released by the soya beans (Kaur <em>et al.,</em>&nbsp;2023). If successful, more of the nitrogen-fixing microorganisms would carry out the BNF process at an earlier stage of crop growth, therefore increasing the availability of nitrogen for the soya bean plants to absorb from an early stage of growth (Kaur <em>et al.,</em>&nbsp;2023). By increasing the yield of the crop, more exudates should be released into the soil, encouraging the same gene expression in the bacteria in subsequent harvests. Therefore, only one application of the nanotechnology would be needed to secure higher yields for subsequent years.</p>
+<p><u>Data Collection</u></p>
+<p>Soya beans were planted in 60 plots of land. To determine whether the nanotechnology worked, it was important to compare its effect with that of a regular BNF inoculant, and to include a control group which did not contain any form of soil treatment. Therefore, Group 1 of 20 plots contained the nanotechnology, Group 2 of 20 plots had BNF inoculant and Group 3 consisted of the final 20 which were untreated. The plots were randomised in 2016 to avoid bias. Results were taken 5 times each year, measured by the total yield per plot. This led to a total of 100 readings per soil type per year.</p>
+<p><u>Hypotheses</u></p>
+<p>There were three hypotheses (A, B and C) to answer three research questions.</p>
+<p>Null Hypothesis A (H0 A): All soil groups produce a similar mean yield in both years.<br>
+Alternative Hypothesis A (H1 A) The mean yield will be significantly higher in Group 1 than in other groups in both testing years.</p>
+<p>Null Hypothesis B (H0 B): The mean yield for Group 1 will be the same in both years.<br>
+Alternative Hypothesis B (H1 B): The mean yield for Group 1 will be significantly higher in 2017.</p>
+<p>Null Hypothesis C (H0): The mean yield will be similar in Group 2 and 3.<br>
+Alternative Hypothesis C (H1): The mean yield in the Group 2 will be significantly higher than that of Group 3.</p>
+</section>
+<section id="materials-and-methods" class="level2">
+<h2 class="anchored" data-anchor-id="materials-and-methods"><u><strong>Materials and Methods</strong></u></h2>
+<p><u>Materials</u></p>
+<p>The data was collected by the biotechnology company. The analysis took place on R Studio and used the tidyverse, dplyr and emmeans packages. The ggplot2 package was also used to create visualisations for the results.</p>
+<p><u>Methods</u></p>
+<p>First, the mean yield was calculated for each soil group per year with the following code:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="do">#### HEADER ####</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="do">## Who: Maria Wilson</span></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="do">## What: R Mini Project</span></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="do">## When: 2024-10-11</span></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="do">## CONTENTS ####</span></span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a><span class="do">## 00 Setup</span></span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a><span class="do">## 1.0 Exploratory Data Analysis</span></span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a><span class="do">## 2.0 Hypothesis A</span></span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a><span class="do">## 3.0 Hypothesis B</span></span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a><span class="do">## 4.0 Graphs</span></span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a><span class="do">## 00 Setup ####</span></span>
+<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a><span class="co"># Set working directory</span></span>
+<span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a><span class="fu">setwd</span>(<span class="st">"~/GitHub/C7091-Assessment-2"</span>)</span>
+<span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-21"><a href="#cb1-21" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-22"><a href="#cb1-22" aria-hidden="true" tabindex="-1"></a><span class="co"># Load libraries</span></span>
+<span id="cb1-23"><a href="#cb1-23" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>── Attaching core tidyverse packages ──────────────────────── tidyverse 2.0.0 ──
+✔ dplyr     1.1.4     ✔ readr     2.1.5
+✔ forcats   1.0.0     ✔ stringr   1.5.1
+✔ ggplot2   3.5.1     ✔ tibble    3.2.1
+✔ lubridate 1.9.3     ✔ tidyr     1.3.1
+✔ purrr     1.0.2     
+── Conflicts ────────────────────────────────────────── tidyverse_conflicts() ──
+✖ dplyr::filter() masks stats::filter()
+✖ dplyr::lag()    masks stats::lag()
+ℹ Use the conflicted package (&lt;http://conflicted.r-lib.org/&gt;) to force all conflicts to become errors</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(dplyr)</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(emmeans)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Welcome to emmeans.
+Caution: You lose important information if you filter this package's results.
+See '? untidy'</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Load data</span></span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>raw_data <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">'data.csv'</span>)</span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a><span class="do">## 1.0 Exploratory Data Analysis ####</span></span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a><span class="do">## 1.1 Mean yield for each soil</span></span>
+<span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a><span class="co"># Separate each soil variable.</span></span>
+<span id="cb5-10"><a href="#cb5-10" aria-hidden="true" tabindex="-1"></a>nanotechnology <span class="ot">&lt;-</span> raw_data <span class="sc">%&gt;%</span>                   <span class="co"># select data object: project_data</span></span>
+<span id="cb5-11"><a href="#cb5-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(soil <span class="sc">==</span> <span class="st">'nanotechnology'</span>)               <span class="co"># filter for nanotechnology</span></span>
+<span id="cb5-12"><a href="#cb5-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-13"><a href="#cb5-13" aria-hidden="true" tabindex="-1"></a>bnf <span class="ot">&lt;-</span> raw_data <span class="sc">%&gt;%</span>                          <span class="co"># select data object: project_data</span></span>
+<span id="cb5-14"><a href="#cb5-14" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(soil <span class="sc">==</span> <span class="st">'bacterial_inoculant'</span>)          <span class="co"># filter for bacterial inoculant</span></span>
+<span id="cb5-15"><a href="#cb5-15" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb5-16"><a href="#cb5-16" aria-hidden="true" tabindex="-1"></a>control <span class="ot">&lt;-</span> raw_data <span class="sc">%&gt;%</span>                      <span class="co"># select data object: project_data</span></span>
+<span id="cb5-17"><a href="#cb5-17" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(soil <span class="sc">==</span> <span class="st">'control'</span>)                      <span class="co"># filter for control</span></span>
+<span id="cb5-18"><a href="#cb5-18" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-19"><a href="#cb5-19" aria-hidden="true" tabindex="-1"></a><span class="co"># Calculate the mean Yield for each soil group over the full 2 years.</span></span>
+<span id="cb5-20"><a href="#cb5-20" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-21"><a href="#cb5-21" aria-hidden="true" tabindex="-1"></a><span class="fu">mean</span>(control<span class="sc">$</span>Yield)               <span class="co"># Mean yield of control group</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 45.55692</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 45.56</span></span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="fu">mean</span>(nanotechnology<span class="sc">$</span>Yield)        <span class="co"># Mean yield of nanotechnology group</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 59.24256</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 59.24</span></span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a><span class="fu">mean</span>(bnf<span class="sc">$</span>Yield)                   <span class="co"># Mean yield of bnf group</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] NA</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="co"># NA</span></span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(bnf) <span class="co"># There is one NA value in the data for bnf yield</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>       yr           soil                rep        Yield       
+ Min.   :2016   Length:200         Min.   :1   Min.   :  0.00  
+ 1st Qu.:2016   Class :character   1st Qu.:2   1st Qu.: 28.47  
+ Median :2016   Mode  :character   Median :3   Median : 41.04  
+ Mean   :2016                      Mean   :3   Mean   : 44.46  
+ 3rd Qu.:2017                      3rd Qu.:4   3rd Qu.: 55.99  
+ Max.   :2017                      Max.   :5   Max.   :151.98  
+                                               NA's   :1       </code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="fu">mean</span>(<span class="fu">na.omit</span>(bnf<span class="sc">$</span>Yield))          <span class="co"># Mean yield of bnf group, omitting the NA value.</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 44.46223</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 44.46</span></span>
+<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a><span class="co"># The mean yield for nanotechnology is higher than the other groups. However, this is very vague. Next step is to calculate the mean for each group, for each year.</span></span>
+<span id="cb15-4"><a href="#cb15-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-5"><a href="#cb15-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-6"><a href="#cb15-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-7"><a href="#cb15-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-8"><a href="#cb15-8" aria-hidden="true" tabindex="-1"></a><span class="do">## 1.2 Mean yield for each soil group for per year</span></span>
+<span id="cb15-9"><a href="#cb15-9" aria-hidden="true" tabindex="-1"></a>nano_2016 <span class="ot">&lt;-</span> nanotechnology <span class="sc">%&gt;%</span>         <span class="co"># Select data object: nanotechnology</span></span>
+<span id="cb15-10"><a href="#cb15-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(yr <span class="sc">==</span> <span class="dv">2016</span>)                    <span class="co"># Filter by year 2016</span></span>
+<span id="cb15-11"><a href="#cb15-11" aria-hidden="true" tabindex="-1"></a>nano_2017 <span class="ot">&lt;-</span> nanotechnology <span class="sc">%&gt;%</span>         <span class="co"># Select data object: nanotechnology</span></span>
+<span id="cb15-12"><a href="#cb15-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(yr <span class="sc">==</span> <span class="dv">2017</span>)                    <span class="co"># Filter by year 2017</span></span>
+<span id="cb15-13"><a href="#cb15-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-14"><a href="#cb15-14" aria-hidden="true" tabindex="-1"></a>bnf_2016 <span class="ot">&lt;-</span> bnf <span class="sc">%&gt;%</span>                     <span class="co"># Select data object: bnf</span></span>
+<span id="cb15-15"><a href="#cb15-15" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(yr <span class="sc">==</span> <span class="dv">2016</span>)                    <span class="co"># Filter by year 2016</span></span>
+<span id="cb15-16"><a href="#cb15-16" aria-hidden="true" tabindex="-1"></a>bnf_2017 <span class="ot">&lt;-</span> bnf <span class="sc">%&gt;%</span>                     <span class="co"># Select data object: bnf</span></span>
+<span id="cb15-17"><a href="#cb15-17" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(yr <span class="sc">==</span> <span class="dv">2017</span>)                    <span class="co"># Filter by year 2017</span></span>
+<span id="cb15-18"><a href="#cb15-18" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-19"><a href="#cb15-19" aria-hidden="true" tabindex="-1"></a>control_2016 <span class="ot">&lt;-</span> control <span class="sc">%&gt;%</span>             <span class="co"># Select data object: control</span></span>
+<span id="cb15-20"><a href="#cb15-20" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(yr <span class="sc">==</span> <span class="dv">2016</span>)                    <span class="co"># Filter by year 2016</span></span>
+<span id="cb15-21"><a href="#cb15-21" aria-hidden="true" tabindex="-1"></a>control_2017 <span class="ot">&lt;-</span> control <span class="sc">%&gt;%</span>             <span class="co"># Select data object: control</span></span>
+<span id="cb15-22"><a href="#cb15-22" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(yr <span class="sc">==</span> <span class="dv">2017</span>)                    <span class="co"># Filter by year 2017</span></span>
+<span id="cb15-23"><a href="#cb15-23" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-24"><a href="#cb15-24" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-25"><a href="#cb15-25" aria-hidden="true" tabindex="-1"></a><span class="co"># Caluclate 2016 yield means</span></span>
+<span id="cb15-26"><a href="#cb15-26" aria-hidden="true" tabindex="-1"></a><span class="fu">mean</span>(control_2016<span class="sc">$</span>Yield)       <span class="co"># Mean yield for control group in 2016</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 59.54646</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 59. 55</span></span>
+<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a><span class="fu">mean</span>(nano_2016<span class="sc">$</span>Yield)          <span class="co"># Mean yield for nanotechnology in 2016</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 70.29243</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 70. 29</span></span>
+<span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a><span class="fu">mean</span>(bnf_2016<span class="sc">$</span>Yield)           <span class="co"># Mean yield for bnf in 2016</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] NA</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="co"># NA</span></span>
+<span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a><span class="fu">mean</span>(<span class="fu">na.omit</span>(bnf_2016<span class="sc">$</span>Yield))  <span class="co"># Mean yield for bnf in 2016, omitting the NA value</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 56.07237</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb23"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 56.07</span></span>
+<span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-3"><a href="#cb23-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Calculate 2017 yield means</span></span>
+<span id="cb23-4"><a href="#cb23-4" aria-hidden="true" tabindex="-1"></a><span class="fu">mean</span>(control_2017<span class="sc">$</span>Yield)       <span class="co"># Mean yield for control group in 2017</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 31.56738</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb25"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 31.57</span></span>
+<span id="cb25-2"><a href="#cb25-2" aria-hidden="true" tabindex="-1"></a><span class="fu">mean</span>(nano_2017<span class="sc">$</span>Yield)          <span class="co"># Mean yield for nanotechnology group in 2017</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 48.19268</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb27"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 48.19</span></span>
+<span id="cb27-2"><a href="#cb27-2" aria-hidden="true" tabindex="-1"></a><span class="fu">mean</span>(bnf_2017<span class="sc">$</span>Yield)           <span class="co"># Mean yield for bnf in 2017</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 32.9682</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb29"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 32.97</span></span>
+<span id="cb29-2"><a href="#cb29-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb29-3"><a href="#cb29-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb29-4"><a href="#cb29-4" aria-hidden="true" tabindex="-1"></a><span class="co"># The mean yield for the nanotechnology was higher than the other two groups, in both 2016 and 2017.</span></span>
+<span id="cb29-5"><a href="#cb29-5" aria-hidden="true" tabindex="-1"></a><span class="co"># In 2016 it was 70.29, compared to 59.55 for the control group, and 56.07 for the bnf inoculant.</span></span>
+<span id="cb29-6"><a href="#cb29-6" aria-hidden="true" tabindex="-1"></a><span class="co"># It was surprising that the bnf inoculant produced a lower mean yield than the untreated group.</span></span>
+<span id="cb29-7"><a href="#cb29-7" aria-hidden="true" tabindex="-1"></a><span class="co"># In 2017, the nanotechnology mean yield was 48.19.</span></span>
+<span id="cb29-8"><a href="#cb29-8" aria-hidden="true" tabindex="-1"></a><span class="co"># This was higher than 31.57 for the control group, and 32.97 for the bnf group.</span></span>
+<span id="cb29-9"><a href="#cb29-9" aria-hidden="true" tabindex="-1"></a><span class="co"># This time, the bnf inoculand produced a slightly higher yield than the control group.</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>The following table shows the results for 2016 in descending order:</p>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>Soil Group</th>
+<th>Mean Yield in 2016</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Group 2 (Nanotechnology</td>
+<td>70.29</td>
+</tr>
+<tr class="even">
+<td>Group 1 (Control)</td>
+<td>59.55</td>
+</tr>
+<tr class="odd">
+<td>Group 3 (Biological Inoculant</td>
+<td>56.07</td>
+</tr>
+</tbody>
+</table>
+<p>It is worth noting that there was a missing value in the BNF data, but the sample size was still large enough to continue with the calculation. There were two stand out features of the means. The first was that the Group 2 did produce the highest mean yield. The second was that Group 1 had a slightly higher yield than Group 3, which was unexpected.</p>
+<p>The means for 2017 in descending order:</p>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>Soil Group</th>
+<th>Mean Yield in 2017</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Group 2 (Nanotechnology)</td>
+<td>48.19</td>
+</tr>
+<tr class="even">
+<td>Group 3 (Biological Inoculant)</td>
+<td>32.97</td>
+</tr>
+<tr class="odd">
+<td>Group 1 (Control)</td>
+<td>31.57</td>
+</tr>
+</tbody>
+</table>
+<p>Once again, the nanotechnology produced the highest mean yield. This time, Group 3 was marginally higher than Group 1.</p>
+<p>The next step in analysing the data was to determine whether the differences in means between each group were statistically significant enough to accept any of the alternative hypotheses. To do this, an analysis of variance (ANOVA) was conducted. Firstly, the following assumptions were made on the data:</p>
+<p>We assumed the sample size was large enough for a Gaussian distribution to exist in the data within each group. Secondly, we assumed homoscedasticity in the data, meaning that the variance in yield was similar in all 3 groups. Thirdly, we assumed the observations were independent.</p>
+<p>The p-value calculated from the ANOVAs were compared to the alpha-value of 0.05 when deciding to accept or reject the null hypothesis. If P &lt; 0.05, the results were considered to be statistically significant enough to reject the null hypothesis and accept the alternative.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb30"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a><span class="do">## 2.0 Hypothesis A ####</span></span>
+<span id="cb30-2"><a href="#cb30-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb30-3"><a href="#cb30-3" aria-hidden="true" tabindex="-1"></a><span class="co"># 2.1 ANOVA </span></span>
+<span id="cb30-4"><a href="#cb30-4" aria-hidden="true" tabindex="-1"></a><span class="co"># To determine whether the differences in mean outlined above were statistically significant, an ANOVA was performed.</span></span>
+<span id="cb30-5"><a href="#cb30-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb30-6"><a href="#cb30-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb30-7"><a href="#cb30-7" aria-hidden="true" tabindex="-1"></a>data_2016 <span class="ot">&lt;-</span> raw_data <span class="sc">%&gt;%</span>             <span class="co"># Create new object and select original dataframe</span></span>
+<span id="cb30-8"><a href="#cb30-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(yr <span class="sc">==</span> <span class="dv">2016</span>)                  <span class="co"># Filter by year 2016</span></span>
+<span id="cb30-9"><a href="#cb30-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb30-10"><a href="#cb30-10" aria-hidden="true" tabindex="-1"></a>anova_16 <span class="ot">&lt;-</span> <span class="fu">aov</span>(Yield <span class="sc">~</span> soil, <span class="at">data =</span> data_2016)     <span class="co"># Run anova on data in 2016</span></span>
+<span id="cb30-11"><a href="#cb30-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb30-12"><a href="#cb30-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb30-13"><a href="#cb30-13" aria-hidden="true" tabindex="-1"></a>data_2017 <span class="ot">&lt;-</span> raw_data <span class="sc">%&gt;%</span>         <span class="co"># Create object and select original data</span></span>
+<span id="cb30-14"><a href="#cb30-14" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(yr <span class="sc">==</span> <span class="dv">2017</span>)                  <span class="co"># Filter by year 2017</span></span>
+<span id="cb30-15"><a href="#cb30-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb30-16"><a href="#cb30-16" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb30-17"><a href="#cb30-17" aria-hidden="true" tabindex="-1"></a>anova_17 <span class="ot">&lt;-</span> <span class="fu">aov</span>(Yield <span class="sc">~</span> soil, <span class="at">data =</span> data_2017)    <span class="co"># Run anova n data in 2017</span></span>
+<span id="cb30-18"><a href="#cb30-18" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb30-19"><a href="#cb30-19" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(anova_16)    <span class="co"># Summary of anova results.</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>             Df Sum Sq Mean Sq F value Pr(&gt;F)   
+soil          2  10957    5478    6.65 0.0015 **
+Residuals   296 243848     824                  
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+1 observation deleted due to missingness</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb32"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true" tabindex="-1"></a><span class="co"># F value is 6.65</span></span>
+<span id="cb32-2"><a href="#cb32-2" aria-hidden="true" tabindex="-1"></a><span class="co"># P value is 0.0015</span></span>
+<span id="cb32-3"><a href="#cb32-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb32-4"><a href="#cb32-4" aria-hidden="true" tabindex="-1"></a><span class="co"># P value &lt; 0.05. Can reject null hypothesis</span></span>
+<span id="cb32-5"><a href="#cb32-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb32-6"><a href="#cb32-6" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(anova_17)        <span class="co"># Summary of anova results</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>             Df Sum Sq Mean Sq F value  Pr(&gt;F)    
+soil          2  17005    8502   33.73 6.3e-14 ***
+Residuals   297  74866     252                    
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb34"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb34-1"><a href="#cb34-1" aria-hidden="true" tabindex="-1"></a><span class="co"># F value is 33.73</span></span>
+<span id="cb34-2"><a href="#cb34-2" aria-hidden="true" tabindex="-1"></a><span class="co"># P value is 6.3e-14</span></span>
+<span id="cb34-3"><a href="#cb34-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb34-4"><a href="#cb34-4" aria-hidden="true" tabindex="-1"></a><span class="co"># P value &lt;  0.05. Reject null hypothesis, accept alternative hypothesis</span></span>
+<span id="cb34-5"><a href="#cb34-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb34-6"><a href="#cb34-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb34-7"><a href="#cb34-7" aria-hidden="true" tabindex="-1"></a><span class="do">## 2.2 Post-hoc</span></span>
+<span id="cb34-8"><a href="#cb34-8" aria-hidden="true" tabindex="-1"></a>posthoc_16 <span class="ot">&lt;-</span> <span class="fu">emmeans</span>(anova_16, pairwise <span class="sc">~</span> soil)</span>
+<span id="cb34-9"><a href="#cb34-9" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(posthoc_16)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>$emmeans
+ soil                emmean   SE  df lower.CL upper.CL
+ bacterial_inoculant   56.1 2.88 296     50.4     61.7
+ control               59.5 2.87 296     53.9     65.2
+ nanotechnology        70.3 2.87 296     64.6     75.9
+
+Confidence level used: 0.95 
+
+$contrasts
+ contrast                             estimate   SE  df t.ratio p.value
+ bacterial_inoculant - control           -3.47 4.07 296  -0.854  0.6699
+ bacterial_inoculant - nanotechnology   -14.22 4.07 296  -3.494  0.0016
+ control - nanotechnology               -10.75 4.06 296  -2.647  0.0232
+
+P value adjustment: tukey method for comparing a family of 3 estimates </code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb36"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb36-1"><a href="#cb36-1" aria-hidden="true" tabindex="-1"></a><span class="co">#  contrast                             estimate   SE  df t.ratio p.value</span></span>
+<span id="cb36-2"><a href="#cb36-2" aria-hidden="true" tabindex="-1"></a><span class="co">#  bacterial_inoculant - control           -3.47 4.07 296  -0.854  0.6699</span></span>
+<span id="cb36-3"><a href="#cb36-3" aria-hidden="true" tabindex="-1"></a><span class="co">#  bacterial_inoculant - nanotechnology   -14.22 4.07 296  -3.494  0.0016</span></span>
+<span id="cb36-4"><a href="#cb36-4" aria-hidden="true" tabindex="-1"></a><span class="co">#  control - nanotechnology               -10.75 4.06 296  -2.647  0.0232</span></span>
+<span id="cb36-5"><a href="#cb36-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb36-6"><a href="#cb36-6" aria-hidden="true" tabindex="-1"></a>posthoc_17 <span class="ot">&lt;-</span> <span class="fu">emmeans</span>(anova_17, pairwise <span class="sc">~</span> soil)</span>
+<span id="cb36-7"><a href="#cb36-7" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(posthoc_17)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>$emmeans
+ soil                emmean   SE  df lower.CL upper.CL
+ bacterial_inoculant   33.0 1.59 297     29.8     36.1
+ control               31.6 1.59 297     28.4     34.7
+ nanotechnology        48.2 1.59 297     45.1     51.3
+
+Confidence level used: 0.95 
+
+$contrasts
+ contrast                             estimate   SE  df t.ratio p.value
+ bacterial_inoculant - control             1.4 2.25 297   0.624  0.8071
+ bacterial_inoculant - nanotechnology    -15.2 2.25 297  -6.781  &lt;.0001
+ control - nanotechnology                -16.6 2.25 297  -7.404  &lt;.0001
+
+P value adjustment: tukey method for comparing a family of 3 estimates </code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb38"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb38-1"><a href="#cb38-1" aria-hidden="true" tabindex="-1"></a><span class="co">#  contrast                             estimate   SE  df t.ratio p.value</span></span>
+<span id="cb38-2"><a href="#cb38-2" aria-hidden="true" tabindex="-1"></a><span class="co"># bacterial_inoculant - control             1.4 2.25 297   0.624  0.8071</span></span>
+<span id="cb38-3"><a href="#cb38-3" aria-hidden="true" tabindex="-1"></a><span class="co"># bacterial_inoculant - nanotechnology    -15.2 2.25 297  -6.781  &lt;.0001</span></span>
+<span id="cb38-4"><a href="#cb38-4" aria-hidden="true" tabindex="-1"></a><span class="co"># control - nanotechnology                -16.6 2.25 297  -7.404  &lt;.0001</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>For Hypotheis B, The mutate() function, from the dplyr R package was used to create a new variable to perform the analysis on. The variable was named ‘Yield Increase’, and was calculated by subtracting each yield count for 2017 from its corresponding reading for the same plot in 2016. The calculations were done using the following code:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb39"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb39-1"><a href="#cb39-1" aria-hidden="true" tabindex="-1"></a><span class="do">## 3.0 HYPOTHESIS B ####</span></span>
+<span id="cb39-2"><a href="#cb39-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb39-3"><a href="#cb39-3" aria-hidden="true" tabindex="-1"></a>years_data <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(data_2016, data_2017)   <span class="co"># combine data for each year</span></span>
+<span id="cb39-4"><a href="#cb39-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb39-5"><a href="#cb39-5" aria-hidden="true" tabindex="-1"></a>years_data <span class="ot">&lt;-</span> years_data <span class="sc">%&gt;%</span> </span>
+<span id="cb39-6"><a href="#cb39-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">rename</span>(<span class="at">Yield_2016 =</span> Yield,           <span class="co"># Rename Yield to Yield 2016</span></span>
+<span id="cb39-7"><a href="#cb39-7" aria-hidden="true" tabindex="-1"></a>         <span class="at">Yield_2017 =</span> Yield<span class="fl">.1</span>)         <span class="co"># Rename Yield.1 to Yield 2017</span></span>
+<span id="cb39-8"><a href="#cb39-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb39-9"><a href="#cb39-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb39-10"><a href="#cb39-10" aria-hidden="true" tabindex="-1"></a>yield_increase <span class="ot">&lt;-</span> years_data <span class="sc">%&gt;%</span> </span>
+<span id="cb39-11"><a href="#cb39-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">yield_increase =</span> Yield_2017 <span class="sc">-</span> Yield_2016)           <span class="co"># create new column with increase in yield</span></span>
+<span id="cb39-12"><a href="#cb39-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb39-13"><a href="#cb39-13" aria-hidden="true" tabindex="-1"></a>yield_increase <span class="ot">&lt;-</span> yield_increase <span class="sc">%&gt;%</span> </span>
+<span id="cb39-14"><a href="#cb39-14" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(soil, yield_increase)                               <span class="co"># select the columns needed</span></span>
+<span id="cb39-15"><a href="#cb39-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb39-16"><a href="#cb39-16" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb39-17"><a href="#cb39-17" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb39-18"><a href="#cb39-18" aria-hidden="true" tabindex="-1"></a>nano_inc <span class="ot">&lt;-</span> yield_increase <span class="sc">%&gt;%</span>                              </span>
+<span id="cb39-19"><a href="#cb39-19" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(soil, yield_increase) <span class="sc">%&gt;%</span> </span>
+<span id="cb39-20"><a href="#cb39-20" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(soil <span class="sc">==</span> <span class="st">'nanotechnology'</span>)</span>
+<span id="cb39-21"><a href="#cb39-21" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb39-22"><a href="#cb39-22" aria-hidden="true" tabindex="-1"></a>control_inc <span class="ot">&lt;-</span> yield_increase <span class="sc">%&gt;%</span> </span>
+<span id="cb39-23"><a href="#cb39-23" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(soil, yield_increase) <span class="sc">%&gt;%</span> </span>
+<span id="cb39-24"><a href="#cb39-24" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(soil <span class="sc">==</span> <span class="st">'control'</span>)</span>
+<span id="cb39-25"><a href="#cb39-25" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb39-26"><a href="#cb39-26" aria-hidden="true" tabindex="-1"></a>bnf_inc <span class="ot">&lt;-</span> yield_increase <span class="sc">%&gt;%</span> </span>
+<span id="cb39-27"><a href="#cb39-27" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(soil, yield_increase) <span class="sc">%&gt;%</span> </span>
+<span id="cb39-28"><a href="#cb39-28" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(soil <span class="sc">==</span> <span class="st">'bacterial_inoculant'</span>)</span>
+<span id="cb39-29"><a href="#cb39-29" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb39-30"><a href="#cb39-30" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(nano_inc)    <span class="co"># Show summary statistics</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>     soil           yield_increase    
+ Length:100         Min.   :-109.211  
+ Class :character   1st Qu.: -47.045  
+ Mode  :character   Median : -23.656  
+                    Mean   : -22.100  
+                    3rd Qu.:   3.052  
+                    Max.   :  60.727  </code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb41"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb41-1"><a href="#cb41-1" aria-hidden="true" tabindex="-1"></a><span class="co"># The summary shows that the mean increase in yield from 2016 to 2017, for the nanotechnology is a negative number.</span></span>
+<span id="cb41-2"><a href="#cb41-2" aria-hidden="true" tabindex="-1"></a><span class="co"># This means that the mean yield actually decreased.</span></span>
+<span id="cb41-3"><a href="#cb41-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb41-4"><a href="#cb41-4" aria-hidden="true" tabindex="-1"></a>yield_increase_all <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(control_inc<span class="sc">$</span>yield_increase, nano_inc<span class="sc">$</span>yield_increase, bnf_inc<span class="sc">$</span>yield_increase)</span>
+<span id="cb41-5"><a href="#cb41-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb41-6"><a href="#cb41-6" aria-hidden="true" tabindex="-1"></a><span class="co"># Run anova on yield increase</span></span>
+<span id="cb41-7"><a href="#cb41-7" aria-hidden="true" tabindex="-1"></a>inc_anova <span class="ot">&lt;-</span> <span class="fu">aov</span>(yield_increase <span class="sc">~</span> soil, <span class="at">data =</span> yield_increase)</span>
+<span id="cb41-8"><a href="#cb41-8" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(inc_anova)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>             Df Sum Sq Mean Sq F value Pr(&gt;F)
+soil          2   1959   979.5   0.879  0.416
+Residuals   296 329683  1113.8               
+1 observation deleted due to missingness</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb43"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb43-1"><a href="#cb43-1" aria-hidden="true" tabindex="-1"></a><span class="co"># F value = 0.879</span></span>
+<span id="cb43-2"><a href="#cb43-2" aria-hidden="true" tabindex="-1"></a><span class="co"># P value = 0.416</span></span>
+<span id="cb43-3"><a href="#cb43-3" aria-hidden="true" tabindex="-1"></a><span class="co"># P value &gt; 0.05, accept null hypothesis.</span></span>
+<span id="cb43-4"><a href="#cb43-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb43-5"><a href="#cb43-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb43-6"><a href="#cb43-6" aria-hidden="true" tabindex="-1"></a><span class="do">## 3.2 Post-hoc</span></span>
+<span id="cb43-7"><a href="#cb43-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb43-8"><a href="#cb43-8" aria-hidden="true" tabindex="-1"></a>posthoc_b <span class="ot">&lt;-</span> <span class="fu">emmeans</span>(inc_anova, pairwise <span class="sc">~</span> soil)</span>
+<span id="cb43-9"><a href="#cb43-9" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(posthoc_b)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>$emmeans
+ soil                emmean   SE  df lower.CL upper.CL
+ bacterial_inoculant  -23.2 3.35 296    -29.8    -16.6
+ control              -28.0 3.34 296    -34.5    -21.4
+ nanotechnology       -22.1 3.34 296    -28.7    -15.5
+
+Confidence level used: 0.95 
+
+$contrasts
+ contrast                             estimate   SE  df t.ratio p.value
+ bacterial_inoculant - control            4.81 4.73 296   1.016  0.5675
+ bacterial_inoculant - nanotechnology    -1.07 4.73 296  -0.227  0.9721
+ control - nanotechnology                -5.88 4.72 296  -1.246  0.4273
+
+P value adjustment: tukey method for comparing a family of 3 estimates </code></pre>
+</div>
+</div>
+</section>
+<section id="results-and-discussion" class="level2">
+<h2 class="anchored" data-anchor-id="results-and-discussion"><u><strong>Results and Discussion</strong></u></h2>
+<p>Hypothesis A</p>
+<p>There was a significant difference in the mean crop yield between at least some soil types in 2016 (<em>F</em>(2, 296) = [6.65], <em>p</em> = 0.0015) and in 2017 (<em>F(</em>2, 297) = [33.73], <em>p</em> = 6.3e-14). In both cases <em>p</em> &lt; 0.05.</p>
+<p>The emmeans() package was used to perform a post hoc test (Tukey’s HSD test) which confirmed that it was Group 1 (nanotechnology) which had a significantly higher mean yield than both of the other groups. The resulting <em>p</em> Values are below, with nanotechnology in bold.</p>
+<p>For 2016:</p>
+<p>Group 3, Group 1 or bacterial inoculant, control (<em>p</em> = 0.6699)&nbsp;</p>
+<p><strong>Group 3, Group 2 or bacterial inoculant, nanotechnolog (<em>p</em> = 0.0016)</strong></p>
+<p><strong>Group 1, Group 2 or control vs nanotechnology ( <em>p</em> = 0.0232)</strong></p>
+<p>This showed that the plots with nanotechnology had a significantly higher mean yield than the other plots.</p>
+<p>2017:</p>
+<p>Group 3, Group 1 or bacterial inoculant, control (<em>p</em> = 0.8071)</p>
+<p><strong>Group 3, Group 2 or bacterial inoculant, nanotechnology (<em>p</em> &lt; 0.0001)</strong></p>
+<p><strong>Group 1, Group 2, control, nanotechnology (<em>p</em> &lt; 0.0001)</strong></p>
+<p>It should be noted that there were some outliers in the data. In 2016, these were for the control group and the bacterial inoculant group. However, due to them being outliers above their respective means, it would not have affected the hypothesis. <em>p</em> &lt; 0.05 consistently for the nanotechnology, therefore we can reject H0 and accept H1. The nanotechnology achieved a higher mean yield than the bacterial inoculant and the control group, in 2016 and 2017.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="Boxplot%20of%20Crop%20Yields%20for%202016.jpeg" class="img-fluid figure-img"></p>
+<figcaption>Fig 1: Boxplot showing the crop yield in the plots in 2016 for each soil group. Group 1 = Control Group, Group 2 = Nanotechnology, Group 3 = bacterial inoculant.</figcaption>
+</figure>
+</div>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="Boxplot%20of%20Crop%20Yields%20for%202017.jpeg" class="img-fluid figure-img"></p>
+<figcaption>Fig 2: Boxplot showing the crop yield in the plots in 2017 for each soil group. Group 1 = Control Group, Group 2 = Nanotechnology, Group 3 = bacterial inoculant.</figcaption>
+</figure>
+</div>
+<p><u>Hypothesis B</u></p>
+<p>There was no significant difference found between the mean yield increase between any of the groups (<em>F</em>(2, 296) = 0.879, <em>p</em> = 0.416).</p>
+<p>We accepted the H0 and rejected H1. This means that any increase/decrease in mean yield from 2016 to 2017 was similar in all groups. The nanotechnology did not produce a significantly higher crop yield in 2017 than in 2016, nor was the decrease significant.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="Boxplot%20of%20Crop%20Yield%20for%20Nanotechnology.jpeg" class="img-fluid figure-img"></p>
+<figcaption>Fig 3: Boxplot showing the difference in nanotechnology yield in 2016 and 2017.</figcaption>
+</figure>
+</div>
+<p><u>Hypothesis C</u></p>
+<p>These results, taken from the post-hoc test carried out for Hypothesis A were applicable.</p>
+<p>2016:</p>
+<p>Group 3, Group 1 or bacterial inoculant vs control (<em>p</em> = 0.6699)</p>
+<p>2017:</p>
+<p>Group 3, Group 1 bacterial inoculant vs control (<em>p</em> = 0.8071)</p>
+<p>In both years <em>p</em> &gt; 0.05 we accepted the null hypothesis H0 and rejected the alternative hypothesis H1.</p>
+<p>All graphs were created using the ggplot2 R package, with the following code:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb45"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb45-1"><a href="#cb45-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
+<span id="cb45-2"><a href="#cb45-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb45-3"><a href="#cb45-3" aria-hidden="true" tabindex="-1"></a>data_2016<span class="sc">$</span>soil <span class="ot">&lt;-</span> <span class="fu">as.factor</span>(data_2016<span class="sc">$</span>soil)                      <span class="co"># Convert soil to factor</span></span>
+<span id="cb45-4"><a href="#cb45-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb45-5"><a href="#cb45-5" aria-hidden="true" tabindex="-1"></a><span class="fu">levels</span>(data_2016<span class="sc">$</span>soil) <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">'Group 3'</span>, <span class="st">'Group 1'</span>, <span class="st">'Group 2'</span>)     <span class="co"># Rename thelevels for soil groups</span></span>
+<span id="cb45-6"><a href="#cb45-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb45-7"><a href="#cb45-7" aria-hidden="true" tabindex="-1"></a>data_2016<span class="sc">$</span>soil <span class="ot">&lt;-</span> <span class="fu">factor</span>(data_2016<span class="sc">$</span>soil, <span class="at">levels =</span> <span class="fu">c</span>(<span class="st">'Group 1'</span>,<span class="st">'Group 2'</span>, <span class="st">'Group 3'</span>), <span class="at">ordered =</span> <span class="cn">TRUE</span>)   <span class="co"># Order the soil groups to correspond with report</span></span>
+<span id="cb45-8"><a href="#cb45-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb45-9"><a href="#cb45-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb45-10"><a href="#cb45-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb45-11"><a href="#cb45-11" aria-hidden="true" tabindex="-1"></a>plot_16 <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(<span class="at">data =</span> data_2016, <span class="fu">aes</span>(<span class="at">x =</span> soil, <span class="at">y =</span> Yield)) <span class="sc">+</span>          <span class="co"># Create ggplot and select 2016 data</span></span>
+<span id="cb45-12"><a href="#cb45-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_boxplot</span>() <span class="sc">+</span>                                                       <span class="co"># Add boxplot layer</span></span>
+<span id="cb45-13"><a href="#cb45-13" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">'Boxplot of Crop Yields for 2016'</span>, <span class="at">x =</span> <span class="st">'Soil Group'</span>) <span class="sc">+</span>    <span class="co"># Add title and x-axis label</span></span>
+<span id="cb45-14"><a href="#cb45-14" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_y_continuous</span>(<span class="at">name =</span> <span class="st">'Crop Yield'</span>, <span class="at">limits =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">160</span>))            <span class="co"># Set y axis-label and appropriate scale.</span></span>
+<span id="cb45-15"><a href="#cb45-15" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(plot_16)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning: Removed 1 row containing non-finite outside the scale range
+(`stat_boxplot()`).</code></pre>
+</div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="statistical-analysis-report_files/figure-html/unnamed-chunk-4-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+<div class="sourceCode cell-code" id="cb47"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb47-1"><a href="#cb47-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 2017:</span></span>
+<span id="cb47-2"><a href="#cb47-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb47-3"><a href="#cb47-3" aria-hidden="true" tabindex="-1"></a>data_2017<span class="sc">$</span>soil <span class="ot">&lt;-</span> <span class="fu">as.factor</span>(data_2017<span class="sc">$</span>soil)                         <span class="co"># Convert soil to factor</span></span>
+<span id="cb47-4"><a href="#cb47-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb47-5"><a href="#cb47-5" aria-hidden="true" tabindex="-1"></a><span class="fu">levels</span>(data_2017<span class="sc">$</span>soil) <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">'Group 3'</span>, <span class="st">'Group 1'</span>, <span class="st">'Group 2'</span>)        <span class="co"># Rename levels for soil groups</span></span>
+<span id="cb47-6"><a href="#cb47-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb47-7"><a href="#cb47-7" aria-hidden="true" tabindex="-1"></a>data_2017<span class="sc">$</span>soil <span class="ot">&lt;-</span> <span class="fu">factor</span>(data_2017<span class="sc">$</span>soil, <span class="at">levels =</span> <span class="fu">c</span>(<span class="st">'Group 1'</span>, <span class="st">'Group 2'</span>, <span class="st">'Group 3'</span>), <span class="at">ordered =</span> <span class="cn">TRUE</span>)        <span class="co"># Order the soil groups to correspond with report</span></span>
+<span id="cb47-8"><a href="#cb47-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb47-9"><a href="#cb47-9" aria-hidden="true" tabindex="-1"></a>plot_17 <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(<span class="at">data =</span> data_2017, <span class="fu">aes</span>(<span class="at">x =</span> soil, <span class="at">y =</span> Yield)) <span class="sc">+</span>         <span class="co"># Create ggplot and select 2017 data</span></span>
+<span id="cb47-10"><a href="#cb47-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_boxplot</span>() <span class="sc">+</span>                                                      <span class="co"># Add boxplot layer</span></span>
+<span id="cb47-11"><a href="#cb47-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">'Boxplot of Crop Yields for 2017'</span>, <span class="at">x =</span> <span class="st">'Soil Group'</span>) <span class="sc">+</span>   <span class="co"># Add title and x-axis label</span></span>
+<span id="cb47-12"><a href="#cb47-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_y_continuous</span>(<span class="at">name =</span> <span class="st">'Crop Yield'</span>, <span class="at">limits =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">160</span>))           <span class="co"># Set y-axis label and scale (same scale as 2016, for easy comparison when looking at the graphs)</span></span>
+<span id="cb47-13"><a href="#cb47-13" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(plot_17)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="statistical-analysis-report_files/figure-html/unnamed-chunk-4-2.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+<div class="sourceCode cell-code" id="cb48"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb48-1"><a href="#cb48-1" aria-hidden="true" tabindex="-1"></a>nanotechnology<span class="sc">$</span>yr <span class="ot">&lt;-</span> <span class="fu">as.factor</span>(nanotechnology<span class="sc">$</span>yr)                <span class="co"># Convert year to factor</span></span>
+<span id="cb48-2"><a href="#cb48-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb48-3"><a href="#cb48-3" aria-hidden="true" tabindex="-1"></a><span class="fu">class</span>(nanotechnology<span class="sc">$</span>yr)                                        </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "factor"</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb50"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb50-1"><a href="#cb50-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> nanotechnology, <span class="fu">aes</span>(<span class="at">x =</span> yr, <span class="at">y =</span> Yield)) <span class="sc">+</span>          <span class="co"># Create ggplot and select nanotechnology data</span></span>
+<span id="cb50-2"><a href="#cb50-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_boxplot</span>() <span class="sc">+</span>                                               <span class="co"># Add boxplot layer</span></span>
+<span id="cb50-3"><a href="#cb50-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">'Boxplot of Crop Yield for Nanotechnology'</span>,       <span class="co"># Add titles and axis lables</span></span>
+<span id="cb50-4"><a href="#cb50-4" aria-hidden="true" tabindex="-1"></a>       <span class="at">x =</span> <span class="st">'Year'</span>,</span>
+<span id="cb50-5"><a href="#cb50-5" aria-hidden="true" tabindex="-1"></a>       <span class="at">y =</span> <span class="st">'Crop Yield Count'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="statistical-analysis-report_files/figure-html/unnamed-chunk-4-3.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+</section>
+<section id="conclusions" class="level2">
+<h2 class="anchored" data-anchor-id="conclusions"><u><strong>Conclusions</strong></u></h2>
+<p>The results of the ANOVAs showed that the mean yield for the nanotechnology crops was significantly higher than that of the bacterial inoculant and the control group, in both years. Therefore, we can conclude that the nanotechnology was successful at this early stage.</p>
+<p>However, the results showed that the selected biological inoculant did not perform better than the control group. Additoinally, the results for Hypothesis B were inconclusive. The yield decreased for all 3 groups being tested which could have been due to factors outside of the data (e.g.&nbsp;temperature, rainfall, disease etc). It is our suggestion that the tests are repeated, and for longer than 2 years.</p>
+</section>
+<section id="bibliography" class="level2">
+<h2 class="anchored" data-anchor-id="bibliography"><u><strong>Bibliography</strong></u></h2>
+<p>Wickham H, Averick M, Bryan J, Chang W, McGowan LD, François R, Grolemund G, Hayes A, Henry L, Hester J, Kuhn M, Pedersen TL, Miller E, Bache SM, Müller K, Ooms J, Robinson D, Seidel DP, Spinu V, Takahashi K, Vaughan D, Wilke C, Woo K, Yutani H (2019). “Welcome to the tidyverse.” <em>Journal of Open Source Software</em>, <em>4</em>(43), 1686. doi:10.21105/joss.01686 <a href="https://doi.org/10.21105/joss.01686" class="uri">https://doi.org/10.21105/joss.01686</a>.</p>
+<p>Wickham H, François R, Henry L, Müller K, Vaughan D (2023). <em>dplyr: A Grammar of Data Manipulation</em>. R package version 1.1.4, <a href="https://CRAN.R-project.org/package=dplyr" class="uri">https://CRAN.R-project.org/package=dplyr</a>.</p>
+<p>Lenth R (2024). <em>emmeans: Estimated Marginal Means, aka Least-Squares Means</em>. R package version 1.10.4, <a href="https://CRAN.R-project.org/package=emmeans" class="uri">https://CRAN.R-project.org/package=emmeans</a>.</p>
+<p>H. Wickham. ggplot2: Elegant Graphics for Data Analysis. Springer-Verlag New York, 2016.</p>
+<p>Barman, S., Das, S. and Bhattacharya, S.S. (2019) ‘Chapter 17 - The Prospects of Bio-Fertilizer Technology for Productive and Sustainable Agricultural Growth’, in Singh, J.S. and Singh, D.P. (eds.)&nbsp;<em>New and Future Developments in Microbial Biotechnology and Bioengineering</em>&nbsp;Elsevier, pp.&nbsp;233–253.</p>
+<p>Bhatti, A.A., Haq, S. and Bhat, R.A. (2017) ‘Actinomycetes benefaction role in soil and plant health’,&nbsp;<em>Microbial pathogenesis,</em> 111, pp.&nbsp;458–467 Available at:&nbsp;<a href="https://doi.org/10.1016/j.micpath.2017.09.036" class="uri">https://doi.org/10.1016/j.micpath.2017.09.036</a>.</p>
+<p>Kaur, H., Hussain, S.J., Mir, R.A., Chandra Verma, V., Naik, B., Kumar, P. and Dubey, R.C. (2023) ‘Nanofertilizers – Emerging smart fertilizers for modern and sustainable agriculture’,&nbsp;<em>Biocatalysis and Agricultural Biotechnology,</em> 54, pp.&nbsp;102921 Available at:&nbsp;<a href="https://doi.org/10.1016/j.bcab.2023.102921" class="uri">https://doi.org/10.1016/j.bcab.2023.102921</a>.</p>
+<p>López-Guerrero, M.G., Ormeño-Orrillo, E., Acosta, J.L., Mendoza-Vargas, A., Rogel, M.A., Ramírez, M.A., Rosenblueth, M., Martínez-Romero, J. and Martínez-Romero, E. (2012) ‘Rhizobial extrachromosomal replicon variability, stability and expression in natural niches’,&nbsp;<em>Plasmid,</em> 68(3), pp.&nbsp;149–158 Available at:&nbsp;<a href="https://doi.org/10.1016/j.plasmid.2012.07.002" class="uri">https://doi.org/10.1016/j.plasmid.2012.07.002</a>.</p>
+</section>
+
+</main>
+<!-- /main column -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const onCopySuccess = function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  }
+  const getTextToCopy = function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+    text: getTextToCopy
+  });
+  clipboard.on('success', onCopySuccess);
+  if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+    // For code content inside modals, clipBoardJS needs to be initialized with a container option
+    // TODO: Check when it could be a function (https://github.com/zenorocha/clipboard.js/issues/860)
+    const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+      text: getTextToCopy,
+      container: window.document.getElementById('quarto-embedded-source-code-modal')
+    });
+    clipboardModal.on('success', onCopySuccess);
+  }
+    var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+    var mailtoRegex = new RegExp(/^mailto:/);
+      var filterRegex = new RegExp('/' + window.location.host + '/');
+    var isInternal = (href) => {
+        return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+    }
+    // Inspect non-navigation links and adorn them if external
+ 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+    for (var i=0; i<links.length; i++) {
+      const link = links[i];
+      if (!isInternal(link.href)) {
+        // undo the damage that might have been done by quarto-nav.js in the case of
+        // links that we want to consider external
+        if (link.dataset.originalHref !== undefined) {
+          link.href = link.dataset.originalHref;
+        }
+      }
+    }
+  function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+    const config = {
+      allowHTML: true,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start',
+    };
+    if (contentFn) {
+      config.content = contentFn;
+    }
+    if (onTriggerFn) {
+      config.onTrigger = onTriggerFn;
+    }
+    if (onUntriggerFn) {
+      config.onUntrigger = onUntriggerFn;
+    }
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      if (note) {
+        return note.innerHTML;
+      } else {
+        return "";
+      }
+    });
+  }
+  const xrefs = window.document.querySelectorAll('a.quarto-xref');
+  const processXRef = (id, note) => {
+    // Strip column container classes
+    const stripColumnClz = (el) => {
+      el.classList.remove("page-full", "page-columns");
+      if (el.children) {
+        for (const child of el.children) {
+          stripColumnClz(child);
+        }
+      }
+    }
+    stripColumnClz(note)
+    if (id === null || id.startsWith('sec-')) {
+      // Special case sections, only their first couple elements
+      const container = document.createElement("div");
+      if (note.children && note.children.length > 2) {
+        container.appendChild(note.children[0].cloneNode(true));
+        for (let i = 1; i < note.children.length; i++) {
+          const child = note.children[i];
+          if (child.tagName === "P" && child.innerText === "") {
+            continue;
+          } else {
+            container.appendChild(child.cloneNode(true));
+            break;
+          }
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(container);
+        }
+        return container.innerHTML
+      } else {
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        return note.innerHTML;
+      }
+    } else {
+      // Remove any anchor links if they are present
+      const anchorLink = note.querySelector('a.anchorjs-link');
+      if (anchorLink) {
+        anchorLink.remove();
+      }
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(note);
+      }
+      // TODO in 1.5, we should make sure this works without a callout special case
+      if (note.classList.contains("callout")) {
+        return note.outerHTML;
+      } else {
+        return note.innerHTML;
+      }
+    }
+  }
+  for (var i=0; i<xrefs.length; i++) {
+    const xref = xrefs[i];
+    tippyHover(xref, undefined, function(instance) {
+      instance.disable();
+      let url = xref.getAttribute('href');
+      let hash = undefined; 
+      if (url.startsWith('#')) {
+        hash = url;
+      } else {
+        try { hash = new URL(url).hash; } catch {}
+      }
+      if (hash) {
+        const id = hash.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note !== null) {
+          try {
+            const html = processXRef(id, note.cloneNode(true));
+            instance.setContent(html);
+          } finally {
+            instance.enable();
+            instance.show();
+          }
+        } else {
+          // See if we can fetch this
+          fetch(url.split('#')[0])
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.getElementById(id);
+            if (note !== null) {
+              const html = processXRef(id, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      } else {
+        // See if we can fetch a full url (with no hash to target)
+        // This is a special case and we should probably do some content thinning / targeting
+        fetch(url)
+        .then(res => res.text())
+        .then(html => {
+          const parser = new DOMParser();
+          const htmlDoc = parser.parseFromString(html, "text/html");
+          const note = htmlDoc.querySelector('main.content');
+          if (note !== null) {
+            // This should only happen for chapter cross references
+            // (since there is no id in the URL)
+            // remove the first header
+            if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+              note.children[0].remove();
+            }
+            const html = processXRef(null, note);
+            instance.setContent(html);
+          } 
+        }).finally(() => {
+          instance.enable();
+          instance.show();
+        });
+      }
+    }, function(instance) {
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            div.style.left = 0;
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+        // Handle positioning of the toggle
+    window.addEventListener(
+      "resize",
+      throttle(() => {
+        elRect = undefined;
+        if (selectedAnnoteEl) {
+          selectCodeLines(selectedAnnoteEl);
+        }
+      }, 10)
+    );
+    function throttle(fn, ms) {
+    let throttle = false;
+    let timer;
+      return (...args) => {
+        if(!throttle) { // first call gets through
+            fn.apply(this, args);
+            throttle = true;
+        } else { // all the others get throttled
+            if(timer) clearTimeout(timer); // cancel #2
+            timer = setTimeout(() => {
+              fn.apply(this, args);
+              timer = throttle = false;
+            }, ms);
+        }
+      };
+    }
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+</div> <!-- /content -->
+
+
+
+
+</body></html>
