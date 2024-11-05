@@ -323,9 +323,9 @@ Group 3, Group 1 or bacterial inoculant, control (*p* = 0.8071)
 
 It should be noted that there were some outliers in the data. In 2016, these were for the control group and the bacterial inoculant group. However, due to them being outliers above their respective means, it would not have affected the hypothesis. *p* \< 0.05 consistently for the nanotechnology, therefore we can reject H0 and accept H1. The nanotechnology achieved a higher mean yield than the bacterial inoculant and the control group, in 2016 and 2017.
 
-![Fig 1: Boxplot showing the crop yield in the plots in 2016 for each soil group. Group 1 = Control Group, Group 2 = Nanotechnology, Group 3 = bacterial inoculant.](Boxplot of Crop Yields for 2016.jpeg)
+![Fig 1: Boxplot showing the crop yield in the plots in 2016 for each soil group. Group 1 = Control Group, Group 2 = Nanotechnology, Group 3 = bacterial inoculant.](Boxplot%20of%20Crop%20Yields%20for%202016.jpeg)
 
-![Fig 2: Boxplot showing the crop yield in the plots in 2017 for each soil group. Group 1 = Control Group, Group 2 = Nanotechnology, Group 3 = bacterial inoculant.](Boxplot of Crop Yields for 2017.jpeg)
+![Fig 2: Boxplot showing the crop yield in the plots in 2017 for each soil group. Group 1 = Control Group, Group 2 = Nanotechnology, Group 3 = bacterial inoculant.](Boxplot%20of%20Crop%20Yields%20for%202017.jpeg)
 
 [Hypothesis B]{.underline}
 
@@ -333,7 +333,7 @@ There was no significant difference found between the mean yield increase betwee
 
 We accepted the H0 and rejected H1. This means that any increase/decrease in mean yield from 2016 to 2017 was similar in all groups. The nanotechnology did not produce a significantly higher crop yield in 2017 than in 2016, nor was the decrease significant.
 
-![Fig 3: Boxplot showing the difference in nanotechnology yield in 2016 and 2017.](Boxplot of Crop Yield for Nanotechnology.jpeg)
+![Fig 3: Boxplot showing the difference in nanotechnology yield in 2016 and 2017.](Boxplot%20of%20Crop%20Yield%20for%20Nanotechnology.jpeg)
 
 [Hypothesis C]{.underline}
 
