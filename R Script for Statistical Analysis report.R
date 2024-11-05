@@ -1,0 +1,254 @@
+#### HEADER ####
+## Who: Maria Wilson
+## What: R Mini Project
+## When: 2024-10-11
+
+
+## CONTENTS ####
+## 00 Setup
+## 1.0 Exploratory Data Analysis
+## 2.0 Hypothesis A
+## 3.0 Hypothesis B
+## 4.0 Graphs
+## 5.0 Citations
+
+
+## 00 Setup ####
+
+# Set working directory
+setwd("~/GitHub/C7091-Assessment-2")
+
+# Load libraries
+library(tidyverse)
+library(dplyr)
+library(emmeans)
+
+# Load data
+raw_data <- read.csv('data.csv')
+
+
+## 1.0 Exploratory Data Analysis ####
+
+
+## 1.1 Mean yield for each soil
+# Separate each soil variable.
+nanotechnology <- raw_data %>%                   # select data object: project_data
+  filter(soil == 'nanotechnology')               # filter for nanotechnology
+
+bnf <- raw_data %>%                          # select data object: project_data
+  filter(soil == 'bacterial_inoculant')          # filter for bacterial inoculant
+  
+control <- raw_data %>%                      # select data object: project_data
+  filter(soil == 'control')                      # filter for control
+
+# Calculate the mean Yield for each soil group over the full 2 years.
+
+mean(control$Yield)               # Mean yield of control group
+# 45.56
+mean(nanotechnology$Yield)        # Mean yield of nanotechnology group
+# 59.24
+mean(bnf$Yield)                   # Mean yield of bnf group
+# NA
+summary(bnf) # There is one NA value in the data for bnf yield
+mean(na.omit(bnf$Yield))          # Mean yield of bnf group, omitting the NA value.
+# 44.46
+
+# The mean yield for nanotechnology is higher than the other groups. However, this is very vague. Next step is to calculate the mean for each group, for each year.
+
+
+
+
+## 1.2 Mean yield for each soil group for per year
+nano_2016 <- nanotechnology %>%         # Select data object: nanotechnology
+  filter(yr == 2016)                    # Filter by year 2016
+nano_2017 <- nanotechnology %>%         # Select data object: nanotechnology
+  filter(yr == 2017)                    # Filter by year 2017
+
+bnf_2016 <- bnf %>%                     # Select data object: bnf
+  filter(yr == 2016)                    # Filter by year 2016
+bnf_2017 <- bnf %>%                     # Select data object: bnf
+  filter(yr == 2017)                    # Filter by year 2017
+
+control_2016 <- control %>%             # Select data object: control
+  filter(yr == 2016)                    # Filter by year 2016
+control_2017 <- control %>%             # Select data object: control
+  filter(yr == 2017)                    # Filter by year 2017
+
+
+# Caluclate 2016 yield means
+mean(control_2016$Yield)       # Mean yield for control group in 2016
+# 59. 55
+mean(nano_2016$Yield)          # Mean yield for nanotechnology in 2016
+# 70. 29
+mean(bnf_2016$Yield)           # Mean yield for bnf in 2016
+# NA
+mean(na.omit(bnf_2016$Yield))  # Mean yield for bnf in 2016, omitting the NA value
+# 56.07
+
+# Calculate 2017 yield means
+mean(control_2017$Yield)       # Mean yield for control group in 2017
+# 31.57
+mean(nano_2017$Yield)          # Mean yield for nanotechnology group in 2017
+# 48.19
+mean(bnf_2017$Yield)           # Mean yield for bnf in 2017
+# 32.97
+
+
+# The mean yield for the nanotechnology was higher than the other two groups, in both 2016 and 2017.
+# In 2016 it was 70.29, compared to 59.55 for the control group, and 56.07 for the bnf inoculant.
+# It was surprising that the bnf inoculant produced a lower mean yield than the untreated group.
+# In 2017, the nanotechnology mean yield was 48.19.
+# This was higher than 31.57 for the control group, and 32.97 for the bnf group.
+# This time, the bnf inoculand produced a slightly higher yield than the control group.
+
+
+## 2.0 Hypothesis A ####
+
+# 2.1 ANOVA 
+# To determine whether the differences in mean outlined above were statistically significant, an ANOVA was performed.
+
+
+data_2016 <- raw_data %>%             # Create new object and select original dataframe
+  filter(yr == 2016)                  # Filter by year 2016
+
+anova_16 <- aov(Yield ~ soil, data = data_2016)     # Run anova on data in 2016
+
+
+data_2017 <- raw_data %>%         # Create object and select original data
+  filter(yr == 2017)                  # Filter by year 2017
+
+
+anova_17 <- aov(Yield ~ soil, data = data_2017)    # Run anova n data in 2017
+
+summary(anova_16)    # Summary of anova results.
+# F value is 6.65
+# P value is 0.0015
+
+# P value < 0.05. Can reject null hypothesis
+
+summary(anova_17)        # Summary of anova results
+# F value is 33.73
+# P value is 6.3e-14
+
+# P value <  0.05. Reject null hypothesis, accept alternative hypothesis
+
+
+## 2.2 Post-hoc
+posthoc_16 <- emmeans(anova_16, pairwise ~ soil)
+summary(posthoc_16)
+
+#  contrast                             estimate   SE  df t.ratio p.value
+#  bacterial_inoculant - control           -3.47 4.07 296  -0.854  0.6699
+#  bacterial_inoculant - nanotechnology   -14.22 4.07 296  -3.494  0.0016
+#  control - nanotechnology               -10.75 4.06 296  -2.647  0.0232
+
+posthoc_17 <- emmeans(anova_17, pairwise ~ soil)
+summary(posthoc_17)
+
+#  contrast                             estimate   SE  df t.ratio p.value
+# bacterial_inoculant - control             1.4 2.25 297   0.624  0.8071
+# bacterial_inoculant - nanotechnology    -15.2 2.25 297  -6.781  <.0001
+# control - nanotechnology                -16.6 2.25 297  -7.404  <.0001
+
+
+
+## 3.0 HYPOTHESIS B ####
+
+years_data <- data.frame(data_2016, data_2017)   # combine data for each year
+
+years_data <- years_data %>% 
+  rename(Yield_2016 = Yield,           # Rename Yield to Yield 2016
+         Yield_2017 = Yield.1)         # Rename Yield.1 to Yield 2017
+
+
+yield_increase <- years_data %>% 
+  mutate(yield_increase = Yield_2017 - Yield_2016)           # create new column with increase in yield
+
+yield_increase <- yield_increase %>% 
+  select(soil, yield_increase)                               # select the columns needed
+
+
+
+nano_inc <- yield_increase %>%                              
+  select(soil, yield_increase) %>% 
+  filter(soil == 'nanotechnology')
+
+control_inc <- yield_increase %>% 
+  select(soil, yield_increase) %>% 
+  filter(soil == 'control')
+
+bnf_inc <- yield_increase %>% 
+  select(soil, yield_increase) %>% 
+  filter(soil == 'bacterial_inoculant')
+
+summary(nano_inc)    # Show summary statistics
+
+# The summary shows that the mean increase in yield from 2016 to 2017, for the nanotechnology is a negative number.
+# This means that the mean yield actually decreased.
+
+yield_increase_all <- data.frame(control_inc$yield_increase, nano_inc$yield_increase, bnf_inc$yield_increase)
+
+# Run anova on yield increase
+inc_anova <- aov(yield_increase ~ soil, data = yield_increase)
+summary(inc_anova)
+
+# F value = 0.879
+# P value = 0.416
+# P value > 0.05, accept null hypothesis.
+
+
+## 3.2 Post-hoc
+
+posthoc_b <- emmeans(inc_anova, pairwise ~ soil)
+summary(posthoc_b)
+
+
+## 4.0 GRAPHS ####
+
+library(ggplot2)
+
+data_2016$soil <- as.factor(data_2016$soil)                      # Convert soil to factor
+
+levels(data_2016$soil) <- c('Group 3', 'Group 1', 'Group 2')     # Rename thelevels for soil groups
+
+data_2016$soil <- factor(data_2016$soil, levels = c('Group 1','Group 2', 'Group 3'), ordered = TRUE)   # Order the soil groups to correspond with report
+
+
+
+plot_16 <- ggplot(data = data_2016, aes(x = soil, y = Yield)) +          # Create ggplot and select 2016 data
+  geom_boxplot() +                                                       # Add boxplot layer
+  labs(title = 'Boxplot of Crop Yields for 2016', x = 'Soil Group') +    # Add title and x-axis label
+  scale_y_continuous(name = 'Crop Yield', limits = c(0, 160))            # Set y axis-label and appropriate scale.
+print(plot_16)
+
+# 2017:
+
+data_2017$soil <- as.factor(data_2017$soil)                         # Convert soil to factor
+
+levels(data_2017$soil) <- c('Group 3', 'Group 1', 'Group 2')        # Rename levels for soil groups
+
+data_2017$soil <- factor(data_2017$soil, levels = c('Group 1', 'Group 2', 'Group 3'), ordered = TRUE)        # Order the soil groups to correspond with report
+
+plot_17 <- ggplot(data = data_2017, aes(x = soil, y = Yield)) +         # Create ggplot and select 2017 data
+  geom_boxplot() +                                                      # Add boxplot layer
+  labs(title = 'Boxplot of Crop Yields for 2017', x = 'Soil Group') +   # Add title and x-axis label
+  scale_y_continuous(name = 'Crop Yield', limits = c(0, 160))           # Set y-axis label and scale (same scale as 2016, for easy comparison when looking at the graphs)
+print(plot_17)
+
+nanotechnology$yr <- as.factor(nanotechnology$yr)                # Convert year to factor
+
+class(nanotechnology$yr)                                        
+ggplot(data = nanotechnology, aes(x = yr, y = Yield)) +          # Create ggplot and select nanotechnology data
+  geom_boxplot() +                                               # Add boxplot layer
+  labs(title = 'Boxplot of Crop Yield for Nanotechnology',       # Add titles and axis lables
+       x = 'Year',
+       y = 'Crop Yield Count')
+
+
+## 5.0 Citations
+
+?citation
+citation("emmeans")
+citation("tidyverse")
+citation("dplyr")
+citation("ggplot2")
