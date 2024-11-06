@@ -1,14 +1,14 @@
 {
-    "id": "AF0DFCCF",
-    "path": "~/GitHub/C7091-Assessment-2/Attempt 2/Attempt 2.qmd",
-    "project_path": "Attempt 2.qmd",
+    "id": "D6DF01F3",
+    "path": "~/GitHub/C7091-Assessment-2/ASSIGNMENT/statistical analysis report.qmd",
+    "project_path": "statistical analysis report.qmd",
     "type": "quarto_markdown",
-    "hash": "0",
+    "hash": "1486264469",
     "contents": "",
     "dirty": false,
-    "created": 1730842210601.0,
+    "created": 1730889824706.0,
     "source_on_save": false,
-    "relative_order": 1,
+    "relative_order": 2,
     "properties": {
         "rmdVisualMode": "true",
         "rmdVisualWrapConfigured": "true",
@@ -16,14 +16,16 @@
         "Source": "Source",
         "docOutlineVisible": "1",
         "rmdVisualCollapsedChunks": "",
-        "rmdVisualModeLocation": "28:0"
+        "rmdVisualModeLocation": "16672:10101.3330078125",
+        "cursorPosition": "297,0",
+        "scrollLine": "20"
     },
     "folds": "",
-    "lastKnownWriteTime": 1730842208,
+    "lastKnownWriteTime": 1730890636,
     "encoding": "UTF-8",
     "collab_server": "",
     "source_window": "",
-    "last_content_update": 1730842208,
+    "last_content_update": 1730890637007,
     "read_only": false,
     "read_only_alternatives": []
 }
